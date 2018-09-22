@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 20:19:21 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/21 19:11:22 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/09/21 18:40:13 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/09/21 19:23:24 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d; 
-	const char *s;
+	void *tmp;
 
-	d = (char *)dst;
-	s = (const char *)src;
-	while (n--)
-	{
-		*d++ = *s++;
-	}	
-	return ((void *)dst);
+	if(!(tmp = (void *)malloc(len)))
+		return (NULL);
+	ft_memcpy(tmp, src, len);
+	ft_memcpy(dst, tmp, len);
+	free (tmp);
+	return (dst);
 }

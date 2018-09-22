@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:40:28 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/13 13:12:28 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/21 19:10:00 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
 int		ft_isdigit(int c);
+int		ft_isascii(int c);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif
