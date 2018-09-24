@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 11:51:31 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/24 12:16:33 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/24 12:24:40 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		j++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-int		main()
-{
-	char str[] = "abchello";
-	char str2[] = "hello";
-	printf("%p\n", ft_strnstr(str, str2, 8));
-	printf("%p\n", strnstr(str, str2, 8));
-	return (0);
 }
