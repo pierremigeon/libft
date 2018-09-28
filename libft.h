@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:40:28 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/21 19:10:00 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/28 12:15:24 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ char	*ft_strchr(const char *s, int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	ft_bzero(void *s, size_t n);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+int		ft_numlen(int n, int base);
 
 #endif
