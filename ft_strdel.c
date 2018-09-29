@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 19:34:40 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/29 16:24:44 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/09/29 15:02:15 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/09/29 15:59:19 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_strdel(char **as)
 {
-	while (n--)
-		*((char *)s++) = 0;
+	free(*as);
+	*as = NULL;
 }
