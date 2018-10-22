@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 15:06:00 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 16:17:36 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/05 10:40:59 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/05 16:31:15 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *s1, const char *s2)
-{
-	int i; 
+#include "libft.h"
 
-	i = 0; 
-	while (*s1)
-		s1++;
-	while (*s2)
-		*s1++ = *s2++;
-	*s1 = '\0';
-	return (s1);
+void	ft_striter(char *s, void (*f)(char *))
+{
+	while (*s)
+		(*f)(s++);
+
+}
+
+#include <stdio.h>
+
+int		main()
+{
+	char str[] = "";
+	printf("%s\n", str);
+	ft_striter(str, ft_strclr);
+	printf("%s\n", str);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 11:40:56 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/28 12:14:24 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/21 14:36:06 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include <string.h>
 #include "libft.h"
 
-int		ft_numlen(int n, int base)
+static int		ft_numlen(int n)
 {
 	int i;
 
 	i = 0;
-	if (n == 0) 
+	if (!n) 
 		return (1);
 	if (n < 0)
 		i++;
 	while (n != 0)
 	{
-		n /= base;
+		n /= 10;
 		i++;
 	}
 	return (i);
@@ -33,13 +33,13 @@ int		ft_numlen(int n, int base)
 
 char	*ft_itoa(int n)
 {
-	int i; 
-	int sign; 
+	int i;
+	int sign;
 	char *out;
 
-	i = ft_numlen(n, 10);
+	i = ft_numlen(n);
 	sign = (n < 0) ? -1 : 1;
-	if (!(out = (char *)malloc(sizeof(char) * (ft_numlen(n, 10) + 1))))
+	if (!(out = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	out[i] = '\0';
 	if (n == 0)

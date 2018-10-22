@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 15:06:00 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 16:17:36 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/21 14:47:26 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/21 14:49:52 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *s1, const char *s2)
-{
-	int i; 
+#include "libft.h"
 
-	i = 0; 
-	while (*s1)
-		s1++;
-	while (*s2)
-		*s1++ = *s2++;
-	*s1 = '\0';
-	return (s1);
+int		ft_strequ(char const *s1, char const *s2, size_t n)
+{
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strncmp(s1, s2, n))
+		return (0);
+	return (1);
 }

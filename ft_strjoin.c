@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 15:06:00 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 16:17:36 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/20 16:07:23 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/21 15:20:17 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *s1, const char *s2)
-{
-	int i; 
+#include "libft.h"
 
-	i = 0; 
-	while (*s1)
-		s1++;
-	while (*s2)
-		*s1++ = *s2++;
-	*s1 = '\0';
-	return (s1);
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char *merge; 
+	size_t len;
+
+	len = 0;
+	len += ft_strlen(s1);
+	len += ft_strlen(s2);
+	if (!(merge = (char *)malloc(sizeof(char) * len)))
+		return (NULL);
+	ft_strcpy(merge, s1);
+	ft_strcat(merge, s2);
+	return (merge);
 }

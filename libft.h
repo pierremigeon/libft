@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:40:28 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/28 12:15:24 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/21 15:12:48 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@ void	ft_bzero(void *s, size_t n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 int		ft_numlen(int n, int base);
+void	ft_strclr(char *s);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char const *s, int fd);
+void ft_putnbr(int n, int fd);
+char	*ft_strcat(char *s1, const char *s2);
 
 #endif
