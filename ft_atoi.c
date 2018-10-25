@@ -6,24 +6,24 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 14:43:21 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/17 15:00:37 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 12:54:16 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_atoi(const char *str)
 {
-	int integer; 
-	int neg; 
+	int integer;
+	int neg;
 
 	integer = 0;
 	neg = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	if ( *str == '-')
+	if (*str == '-')
 		neg = -1;
 	if (*str == '+' || *str == '-')
 		str++;
 	while (*str >= '0' && *str <= '9')
 		integer = integer * 10 + (*str++ - '0');
-	return ( neg == -1 ? -integer : integer);
+	return (neg == -1 ? -integer : integer);
 }

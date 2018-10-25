@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 10:47:18 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/24 12:20:26 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 13:14:39 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	if (!*needle)
-		return ((char *)haystack); 
+		return ((char *)haystack);
 	while (*haystack)
 	{
 		if (*haystack == needle[i])

@@ -6,33 +6,22 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/05 17:09:39 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/05 17:10:12 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 13:09:14 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int i;
 
 	i = 0;
 	if (!f)
-		return;
+		return ;
 	while (s[i])
 	{
 		(*f)(i, s + i);
 		i++;
 	}
-}
-
-#include <stdio.h>
-
-int		main()
-{
-	char str[] = "hello";
-	printf("%s\n", str);
-	ft_striteri(str, ft_strclr);
-	printf("%s\n", str);
-	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 11:40:56 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/21 14:36:06 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 13:01:56 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 
@@ -19,7 +19,7 @@ static int		ft_numlen(int n)
 	int i;
 
 	i = 0;
-	if (!n) 
+	if (!n)
 		return (1);
 	if (n < 0)
 		i++;
@@ -31,11 +31,11 @@ static int		ft_numlen(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	int i;
-	int sign;
-	char *out;
+	int		i;
+	int		sign;
+	char	*out;
 
 	i = ft_numlen(n);
 	sign = (n < 0) ? -1 : 1;

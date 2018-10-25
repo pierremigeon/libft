@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 11:51:31 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/24 12:24:40 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 13:08:10 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int i;
-	size_t j;
+	int		i;
+	size_t	j;
 
 	i = 0;
 	j = 0;

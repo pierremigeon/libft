@@ -6,14 +6,14 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 15:45:20 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 15:48:08 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 13:05:22 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void ft_putendl(char const *s)
+void	ft_putendl(char const *s)
 {
 	ft_putstr(s);
 	write(1, "\n", 1);

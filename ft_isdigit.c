@@ -6,19 +6,11 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 20:27:15 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/14 13:13:13 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 11:13:13 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int		ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
-}
-
-int		main()
-{
-	printf("%d", ft_isdigit('A'));
-	return (0);
 }

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 15:30:22 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/25 11:47:42 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/22 17:44:10 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/23 13:30:57 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char			*ft_strtrim(char const *s)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*trimmed;
+	char	*newstring;
 	int		i;
-	int		j;
-	int		len;
-	
+
 	i = -1;
-	j = -1;
-	if (!s)
+	if (s && f)
+	{
+		if (!(newstring = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+			return (NULL);
+		while (s[++i])
+			newstring[i] = (*f)(i, s[i]);
+		newstring[i] = '\0';
+	}
+	else 
 		return (NULL);
-	len = (int)ft_strlen(s);
-	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
-		len--;
-	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		len--;
-	if (!(trimmed = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	s += i;
-	while (++j < len)
-		trimmed[j] = *s++;
-	trimmed[j] = '\0';
-	return (trimmed);
+	return (newstring);
 }

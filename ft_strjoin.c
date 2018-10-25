@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 16:07:23 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/21 15:20:17 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/24 18:37:38 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *merge; 
-	size_t len;
+	char	*merge;
+	size_t	len;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	len = 0;
 	len += ft_strlen(s1);
 	len += ft_strlen(s2);

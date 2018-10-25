@@ -6,19 +6,21 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 15:06:00 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 16:17:36 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/23 14:15:13 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int i; 
+	int i;
+	int j;
 
-	i = 0; 
-	while (*s1)
-		s1++;
-	while (*s2)
-		*s1++ = *s2++;
-	*s1 = '\0';
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+		s1[i++] = s2[j++];
+	s1[i] = '\0';
 	return (s1);
 }
