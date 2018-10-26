@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:33:36 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/24 19:37:31 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/26 15:58:53 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ static int		ft_count_delim(const char *str, char c)
 	j = 0;
 	while (str[j])
 	{
-		if (str[j] == c && str[j + 1] != c && str[j + 1] != '\0')
+		
+		if (str[j] == c && str[j + 1] != c)
 			i++;
 		j++;
 	}
+	if (i == 0 && j > 0)
+		i = 1;
 	return (i + 1);
 }
 
@@ -43,27 +46,42 @@ static int		ft_wordlen(const char *str, char c)
 	return (i);
 }
 
+#include <stdio.h>
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**split;
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	if (!(split = (char **)malloc(sizeof(char *) * ft_count_delim(s, c))) || !s || !c)
 		return (NULL);
 	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if ((*(s - 1) == c || !*(s - 1)) && *(s + 1))
-		{
-			split[i++] = ft_strnew(ft_wordlen(s, c));
-			j = 0;
-		}
-		split[i - 1][j++] = *s;
-		s++;
+		if (!(split[++i] = ft_strnew(ft_wordlen(s, c))))
+			split[i] = NULL;
+		j = 0;
+		while (*s && *s != c)
+			split[i][j++] = *s++;
 	}
-	split[i] = NULL;
+	split[++i] = NULL;
 	return (split);
+}
+
+#include <unistd.h>
+int		main()
+{
+	char **split;
+	char str[] ="hello*fellow***students*";
+	split = ft_strsplit(str, '*');
+
+	int i = 0;
+	while (split[i])
+	{
+		ft_putstr(split[i++]);
+		write(1, "\n", 1);
+	}
+	return (0);
 }
