@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:33:36 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/26 15:58:53 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/28 20:23:05 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ static int		ft_count_delim(const char *str, char c)
 	j = 0;
 	while (str[j])
 	{
-		
-		if (str[j] == c && str[j + 1] != c)
+		if (str[j] && str[j] != c)
+		{
+			while (str[j] && str[j + 1] != c)
+					j++;
 			i++;
+		}
 		j++;
 	}
-	if (i == 0 && j > 0)
-		i = 1;
 	return (i + 1);
 }
 
@@ -64,7 +65,8 @@ char			**ft_strsplit(char const *s, char c)
 			split[i] = NULL;
 		j = 0;
 		while (*s && *s != c)
-			split[i][j++] = *s++;
+			split[i][j++] = *(s++);
+		s++;
 	}
 	split[++i] = NULL;
 	return (split);
@@ -74,7 +76,7 @@ char			**ft_strsplit(char const *s, char c)
 int		main()
 {
 	char **split;
-	char str[] ="hello*fellow***students*";
+	char str[] ="hello*fellow***students";
 	split = ft_strsplit(str, '*');
 
 	int i = 0;

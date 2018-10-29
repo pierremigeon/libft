@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 15:36:32 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/23 13:08:32 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/28 13:41:32 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
+	if (!s || !fd) 
+		return ;
 	ft_putstr_fd(s, fd);
-	write(1, "\n", 1);
+	ft_putchar_fd('\n', fd);
 }

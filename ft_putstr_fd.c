@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 15:18:34 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/20 15:36:21 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/28 13:43:30 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putstr_fd(char const *s, int fd)
 {
 	int len;
 
+	if (!s || !fd)
+		return ;
 	len = 0;
 	while (s[len])
 		len++;
