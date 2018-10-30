@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:33:36 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/28 20:23:05 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/29 18:18:55 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static int		ft_count_delim(const char *str, char c)
+static int		ft_wordcount(const char *str, char c)
 {
 	int i;
-	int j;
+	int wcount;
 
 	i = 0;
-	j = 0;
-	while (str[j])
+	wcount = 0;
+	while (str[i] != '\0')
 	{
-		if (str[j] && str[j] != c)
-		{
-			while (str[j] && str[j + 1] != c)
-					j++;
-			i++;
-		}
-		j++;
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+			++wcount;
+		i++;
 	}
-	return (i + 1);
+	return (wcount + 1);
 }
 
 static int		ft_wordlen(const char *str, char c)
@@ -47,43 +43,30 @@ static int		ft_wordlen(const char *str, char c)
 	return (i);
 }
 
-#include <stdio.h>
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**split;
 	int		i;
 	int		j;
+	int		k;
 
-	i = -1;
-	if (!(split = (char **)malloc(sizeof(char *) * ft_count_delim(s, c))) || !s || !c)
+	i = 0;
+	j = 0;
+	if (!s || !c || !(split = (char **)malloc(sizeof(char *) * ft_wordcount(s, c))))
 		return (NULL);
-	while (*s)
+	while ((size_t)j < ft_strlen(s))
 	{
-		while (*s == c)
-			s++;
-		if (!(split[++i] = ft_strnew(ft_wordlen(s, c))))
-			split[i] = NULL;
-		j = 0;
-		while (*s && *s != c)
-			split[i][j++] = *(s++);
-		s++;
+		while (s[j] && s[j] == c)
+			j++;
+		k = j;
+		while (s[j] && s[j] != c)
+			j++;
+		if (k < j)
+		{
+			split[i] = ft_strnew(ft_wordlen((char *)s + k, c));
+			ft_strncpy(split[i++], (char *)s + k, j - k);
+		}
 	}
-	split[++i] = NULL;
+	split[i] = NULL;
 	return (split);
-}
-
-#include <unistd.h>
-int		main()
-{
-	char **split;
-	char str[] ="hello*fellow***students";
-	split = ft_strsplit(str, '*');
-
-	int i = 0;
-	while (split[i])
-	{
-		ft_putstr(split[i++]);
-		write(1, "\n", 1);
-	}
-	return (0);
 }

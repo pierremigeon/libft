@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/21 18:40:13 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/28 21:08:55 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/29 18:21:13 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/30 16:34:17 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char *d;
-	char *s;
-	size_t i;
-	
-	d = (char *)dst;
-	s = (char *)src;
-	if (d == s)
-		return (d);
-	while (s < d && len--)
-		((char *)d)[len] = ((char *)s)[len];
-	if (s > d)	
+	t_list *newlink;
+
+	if (!(newlink = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
 	{
-		i = 0; 
-		while (i < len)
-		{
-			((char *)d)[i] = ((char *)s)[i];
-			i++;
-		}
+		newlink->content = NULL;
+		newlink->content_size = 0;
 	}
-	return (d);
+	else
+	{
+		if (!(newlink->content = (void *)malloc(content_size)))
+			return (NULL);
+		ft_memcpy(newlink->content, content, content_size);
+		newlink->content_size = content_size;
+	}
+	newlink->next = NULL;
+	return (newlink);
 }
