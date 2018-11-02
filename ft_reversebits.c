@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_reversebits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 14:29:34 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/11/01 17:30:48 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/30 17:16:31 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/30 17:21:04 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalnum(int c)
+unsigned char	ft_reversebits(unsigned char octet)
 {
-	return ((c >= '0' && c <= '9')
-			|| (c >= 'A' && c <= 'Z')
-			|| (c >= 'a' && c <= 'z'));
+	unsigned char start;
+	unsigned char end;
+	unsigned char result;
+
+	start = 1;
+	end = 128;
+	result	= 0; 
+	while (start)
+	{
+		if (start & octet)
+			result |= end;
+		start <<= 1;
+		end >>= 1;
+	}
+	return (result);
 }

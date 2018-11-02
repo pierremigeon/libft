@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 14:43:21 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/28 13:22:29 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/11/01 15:39:31 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int		ft_atoi(const char *str)
 	if (*str == '+' || *str == '-')
 		str++;
 	while (*str >= '0' && *str <= '9')
-		integer = integer * 10 + (*str++ - '0');
+		integer = integer * 10 + (*(str++) - '0');
 	return (neg == -1 ? -integer : integer);
 }

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 14:29:34 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/11/01 17:30:48 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/10/30 16:52:27 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/10/30 17:58:47 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalnum(int c)
+#include "libft.h"
+
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	return ((c >= '0' && c <= '9')
-			|| (c >= 'A' && c <= 'Z')
-			|| (c >= 'a' && c <= 'z'));
+	t_list *current;
+	t_list *next;	
+
+	if (!*alst || !alst)
+		return ;
+	current = *alst;
+	while (*del && current)
+	{
+		next = current->next;
+		del(current->content, current->content_size);
+		free(current);
+		current = next;
+	}
+	*alst = NULL;
 }
