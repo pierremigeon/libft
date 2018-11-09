@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 17:44:10 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/23 13:30:57 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/11/06 12:36:50 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 			newstring[i] = (*f)(i, s[i]);
 		newstring[i] = '\0';
 	}
-	else 
+	else
 		return (NULL);
 	return (newstring);
 }

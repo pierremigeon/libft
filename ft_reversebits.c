@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 17:16:31 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/30 17:21:04 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/11/06 12:40:15 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ unsigned char	ft_reversebits(unsigned char octet)
 
 	start = 1;
 	end = 128;
-	result	= 0; 
+	result = 0;
 	while (start)
 	{
 		if (start & octet)

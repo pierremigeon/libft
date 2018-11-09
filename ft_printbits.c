@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_printbits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/30 16:52:27 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/11/06 12:36:25 by pmigeon          ###   ########.fr       */
+/*   Created: 2018/11/04 13:55:49 by pmigeon           #+#    #+#             */
+/*   Updated: 2018/11/04 14:25:34 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_printbits(unsigned char octet)
 {
-	t_list *current;
-	t_list *next;
+	int i;
 
-	if (!*alst || !alst)
-		return ;
-	current = *alst;
-	while (*del && current)
+	i = 128;
+	while (i)
 	{
-		next = current->next;
-		del(current->content, current->content_size);
-		free(current);
-		current = next;
+		ft_putchar('0' + ((i & octet) && 1));
+		i >>= 1;
 	}
-	*alst = NULL;
 }
