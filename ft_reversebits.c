@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 unsigned char	ft_reversebits(unsigned char octet)
 {
 	unsigned char start;

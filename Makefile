@@ -6,7 +6,7 @@
 #    By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 16:09:15 by pmigeon           #+#    #+#              #
-#    Updated: 2018/11/06 15:45:53 by pmigeon          ###   ########.fr        #
+#    Updated: 2018/11/10 20:46:56 by pmigeon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SOURCES = ./ft_memset.c ./ft_bzero.c ./ft_memcpy.c ./ft_memccpy.c ./ft_memmove.c
 ./ft_putchar.c ./ft_putstr.c ./ft_putendl.c ./ft_putnbr.c ./ft_putchar_fd.c \
 ./ft_putstr_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c ./ft_bnumlen.c \
 ./ft_lstnew.c ./ft_lstdelone.c ft_swapbits.c ft_reversebits.c ft_lstdel.c \
-./ft_lstadd.c ./ft_lstiter.c ./ft_lstmap.c
+./ft_lstadd.c ./ft_lstiter.c ./ft_lstmap.c ./ft_lstmap2.c ./ft_lstprint.c \
+./ft_lsttoupper.c ./ft_printbits.c
 HEADER = ./
 LIBNAME = libft.a
 COMPILER = gcc
@@ -39,12 +40,14 @@ OFILE = ./ft_memset.o ./ft_bzero.o ./ft_memcpy.o ./ft_memccpy.o ./ft_memmove.o \
 ./ft_putchar.o ./ft_putstr.o ./ft_putendl.o ./ft_putnbr.o ./ft_putchar_fd.o \
 ./ft_putstr_fd.o ./ft_putendl_fd.o ./ft_putnbr_fd.o ./ft_bnumlen.o \
 ./ft_lstnew.o ./ft_lstdelone.o ft_swapbits.o ft_reversebits.o ft_lstdel.o \
-./ft_lstadd.o ./ft_lstiter.o ./ft_lstmap.o
+./ft_lstadd.o ./ft_lstiter.o ./ft_lstmap.o ./ft_lstmap2.o ./ft_lstprint.o \
+./ft_lsttoupper.o ./ft_printbits.o
+
 NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): 
+$(NAME):
 	$(COMPILER) $(FLAGS) $(SOURCES) -I $(HEADER)
 	ar rc $(LIBNAME) $(OFILE)
 	ranlib $(LIBNAME)
@@ -52,7 +55,7 @@ $(NAME):
 clean:
 	/bin/rm -f $(OFILE)
 
-fclean: clean 
+fclean: clean
 	/bin/rm -f $(LIBNAME)
 
 re: fclean all
