@@ -2,9 +2,9 @@
 
 > **"C programming can be very tedious when one doesn’t have access to those highly useful standard functions. This project makes you to take the time to re-write those functions, understand them, and learn to use them. This library will help you for all your future C projects."**
 
-Here I re-coded essential functions from the C standard library. This was the first assigned project upon joining école 42 Silicon Valley. Upon completion, the library is used additional projects in the curriculum which build on this project. Best to catch bugs early, lest they wreck later projects! The library is also updated as new functions are written along the way. The entire library is compiled into `./libft/libft.a` static library file, with compilation and linking handled by a makefile. Simply run `make all`. The library header file is `./libft/libft.h`. 
+Here I re-coded essential functions from the C standard library. The entire library is compiled into `./libft/libft.a` static library file, with compilation and linking handled by a makefile. Simply run `make all`. The library header file is `./libft/libft.h`. 
 
-That being said, I did catch some bugs later and updated functions accordingly. I even added some new functions along the way. I've realized now that I have several different libfts floating around, and so I decided to fork an earlier one from my old github account to consolidate everything into. This will ultimately be my standard uniform and correct libft. And of course, I want to show it off!
+This was the first assigned project upon joining école 42 Silicon Valley. Libft is used in all subsequent projects in the curriculum. The library is also updated as new functions are written along the way. Best to catch bugs early, lest they wreck later projects! Somewhere along the way, I've ended up with different versions of this library, and so I'm consilidating these here in order to maintain a standard uniform library for my continued use. And of course, I want to show it off!
 
 The functions deal primarily with string and memory operations of varying complexities, with an introduction to linkedlists, bitwise operations, and function pointers.
 
